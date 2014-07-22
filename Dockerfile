@@ -23,4 +23,4 @@ ADD . /postcodes.io
 RUN cd /postcodes.io && npm install -g
 ENV NODE_ENV docker
 WORKDIR /postcodes.io
-CMD unzip /tmp/ons/ons.zip && importons `find /tmp/ons -type f -name ONS*.csv`
+CMD unzip /tmp/ons/ons.zip -d /tmp/ons/ && importons `find /tmp/ons -type f -name ONS*.csv`
