@@ -7,7 +7,7 @@ ADD package.json /tmp/node/package.json
 ADD npm-shrinkwrap.json /tmp/node/npm-shrinkwrap.json
 RUN cd /tmp/node && npm install -g --no-bin-links
 ADD . /postcodes.io
-RUN cd /postcodes.io && npm install && npm link
+RUN cd /postcodes.io && npm link
 ENV NODE_ENV docker
 WORKDIR /postcodes.io
 CMD unzip /tmp/ons/ons.zip -d /tmp/ons/ && importons `find /tmp/ons -type f -name ONS*.csv`
