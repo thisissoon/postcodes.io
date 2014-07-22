@@ -64,6 +64,23 @@ var config = {
 		}
 	},
 
+	docker : {
+		env : "docker",
+		root: rootPath,
+		postgres: {
+			user: process.env.POSTGRES_ENV_POSTGRESQL_USER || "docker",
+			password: process.env.POSTGRES_ENV_POSTGRESQL_PASS || "docker",
+			database: process.env.POSTGRES_ENV_POSTGRESQL_DB || "postcodeio",	// Database name
+			host: process.env.POSTGRES_PORT_5432_TCP_ADDR || "localhost",
+			port: process.env.POSTGRES_PORT_5432_TCP_PORT || 5432
+		},
+		log : {
+			name : "postcodes.io",
+			streams: [{
+				path : path.join(rootPath, "/logs/production.log")	
+			}]
+		}
+	},
 	/*
 	* Production Environment Configuration Object
 	* 
