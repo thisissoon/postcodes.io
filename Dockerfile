@@ -3,7 +3,7 @@ ENV ONS_ZIP_URL https://geoportal.statistics.gov.uk/Docs/PostCodes/ONSPD_MAY_201
 RUN mkdir -p /tmp/ons && cd /tmp/ons && curl -sL -o ons.zip $ONS_ZIP_URL
 RUN mkdir -p /tmp/node
 ADD package.json /tmp/node/package.json
-RUN cd /tmp && npm install -g
+RUN cd /tmp/node && npm install -g
 ADD . /postcodes.io
 ENV NODE_ENV docker
 WORKDIR /postcodes.io
